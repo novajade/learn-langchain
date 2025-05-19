@@ -8,6 +8,24 @@ import os
 
 load_dotenv()
 
+template = "You are a helpful assistant that translates {input_language} to {output_language}"
+human_template = "{text}"
+
+chat_prompt = ChatPromptTemplate.from_messages(
+    [("system", template), 
+     ("human", human_template),]
+)
+
+resp = chat_prompt.format_messages(
+    input_language="English",
+    output_language="Chinese",
+    text="I love Programming"
+)
+
+# print(resp)
+
+chat_model = ChatOpenAI()
+print(chat_model(resp))
 
 
 
