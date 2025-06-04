@@ -1,1 +1,3 @@
 .env
+./LangServe/__pycache__/
+./LangServe/venv/
