@@ -109,6 +109,7 @@ for event in events:
     if "messages" in event:
         event["messages"][-1].pretty_print()
 
+#Source of Truth
 human_command = Command(
     resume={
         "name": "LangGraph",

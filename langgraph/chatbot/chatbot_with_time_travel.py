@@ -10,6 +10,7 @@ from langgraph.graph import StateGraph, START, END
 from langgraph.graph.message import add_messages
 from langgraph.prebuilt import ToolNode, tools_condition
 
+## 쌓였던 히스토리에서 특정 시점으로 Rewind 하는 기능
 
 class State(TypedDict):
     messages: Annotated[list, add_messages]
@@ -114,7 +115,7 @@ for state in graph.get_state_history(config): # type: ignore
         print(state.values["messages"][-1].pretty_print())
 
     print("-" * 80)
-    if len(state.values["messages"]) == 6:
+    if len(state.values["messages"]) == 6: ##6번이 Japan 단계
         # ================================== Ai Message ==================================
         # Tool Calls:
         #   tavily_search_results_json (call_YQAiFP2XMgBTeIZB5KHjfLkG)
@@ -122,7 +123,7 @@ for state in graph.get_state_history(config): # type: ignore
         #   Args:
         #     query: current population of Japan 2023
         # None
-        to_replay = state
+        to_replay = state ##저장
 
 _ = input()
 

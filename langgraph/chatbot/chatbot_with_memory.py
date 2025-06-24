@@ -1,4 +1,6 @@
 from langgraph.checkpoint.memory import MemorySaver
+from dotenv import load_dotenv
+load_dotenv()
 
 memory = MemorySaver()
 
@@ -49,6 +51,7 @@ graph = graph_builder.compile(checkpointer=memory)
 # print(graph.get_graph().draw_mermaid())
 # https://mermaid.live/
 
+#thread = 1라는건 LLM에게 처음 물어봤을때
 config = {"configurable": {"thread_id": "1"}}
 
 user_input = "Hi there! My name is Will."
